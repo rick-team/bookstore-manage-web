@@ -8,20 +8,35 @@ const { SubMenu } = Menu
 class Home extends Component {
   constructor(props) {
     super(props)
+    this.state= {
+
+    }
+    this.quit= this.quit.bind(this)
   }
   
   componentWillMount(){
-    console.log(store.getState().isLogin)
     if(!store.getState().isLogin) {
       this.props.history.push('/login')
     }
   }
 
+  quit() {
+    const action = {
+      type: 'loginChange',
+      value: false
+    } 
+    store.dispatch(action)
+    this.props.history.push('/login')
+  }
+
   render() {
     return (
       <div className='home'>
-        <Header />
-        <HomeNav />
+        <Header quit={this.quit} />
+        <div>
+          <HomeNav />
+          <div></div>
+        </div>
       </div>
     )
   }
@@ -29,16 +44,16 @@ class Home extends Component {
 
 class Header extends Component {
   constructor (props) {
-    super(props);
+    super(props)
     this.state= {
       hours: 0
     }
+    this.quit = this.quit.bind(this)
   }
 
   componentWillMount() {
-    const time= new Date();
+    const time= new Date()
     const hours= time.getHours()
-    console.log(hours)
     this.setState({
       hours: hours
     })
@@ -46,25 +61,11 @@ class Header extends Component {
 
   get nowTime() {
     const houer = this.state.hours
-    if(houer > 19 || houer < 6) {
-      return '晚上'
-    }
+    return (houer > 19 || houer < 6) ?'晚上': houer > 14?'下午': houer > 12?'中午': houer > 9?'上午': '早上'
+  }
 
-    if(houer > 14) {
-      return '下午'
-    }
-
-    if(houer > 12) {
-      return '中午'
-    }
-
-    if(houer > 9) {
-      return '上午'
-    }
-
-    if(houer > 6) {
-      return '早上'
-    }
+  quit() {
+    this.props.quit()
   }
 
   render() {
@@ -73,8 +74,8 @@ class Header extends Component {
         <Avatar size={40} src={logo} />
         <span className='title'>小小甜书店后台管理系统</span>
         <div className='Admin'>
-          <span>{this.nowTime + '好,'}admin</span>
-          <Button>退出登陆</Button>
+          <span>{this.nowTime + '好, '}admin</span>
+          <Button onClick={this.quit}>退出登陆</Button>
         </div>
       </div>
     )
