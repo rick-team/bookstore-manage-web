@@ -8,7 +8,7 @@ export default (state = defaultState,action)=>{
       const newState = JSON.parse(JSON.stringify(state))
       newState.isLogin = action.value
       return newState
-      break
+    default :
+      return state
   }
-  return state
 }

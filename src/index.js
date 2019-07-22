@@ -5,7 +5,7 @@ import moment from 'moment';
 
 // import zhCN from 'antd/es/locale-provider/zh_CN'
 import 'moment/locale/zh-cn'
-import './assets/style/index.sass'
+import './assets/style/index.less'
 
 moment.locale('zh-cn');
 
