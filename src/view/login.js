@@ -1,5 +1,6 @@
 import React , { Component } from 'react'
-import { Form, Icon, Input, Button, message } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd'
+import store from '../store'
 
 class Login extends Component {
   constructor(props) {
@@ -16,9 +17,15 @@ class Login extends Component {
   onSubmit(e) {
     e.preventDefault()
     if(this.state.userName === 'admin' && this.state.userName === 'admin') {
+      const action = {
+        type: 'loginChange',
+        value: true
+      } 
+      store.dispatch(action)
+      this.props.history.push('/home')
       message.success('登陆成功')
     }else {
-      message.error('登陆失败')
+      message.error('密码错误，登陆失败')
     }
   }
 

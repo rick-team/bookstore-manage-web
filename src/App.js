@@ -5,9 +5,9 @@ import Login from './view/Login'
 import Home from './view/Home'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
     return (
@@ -17,7 +17,6 @@ class App extends Component {
           <Route exact path="/home" component={Home}></Route>
           <Route path="/login" component={Login}></Route>
         </Switch>
-        
         <Redirect from='/' to='/home'/>
       </Router>
     )

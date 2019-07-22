@@ -1,4 +1,5 @@
 import React , { Component } from 'react'
+import store from '../store'
 
 class Home extends Component {
   constructor(props) {
@@ -6,8 +7,10 @@ class Home extends Component {
   }
   
   componentWillMount(){
-    console.log('componentWillMount')
-    this.props.history.push('/login')
+    console.log(store.getState().isLogin)
+    if(!store.getState().isLogin) {
+      this.props.history.push('/login')
+    }
   }
 
   render() {
