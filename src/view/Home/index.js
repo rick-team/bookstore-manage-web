@@ -1,7 +1,8 @@
 import React , { Component } from 'react'
-import { Menu, Icon, Avatar, Button  } from 'antd'
-import store from '../store'
-import logo from '../assets/img/logo.jpg'
+import { Menu, Icon, Avatar, Button, Pagination } from 'antd'
+import { Link } from 'react-router-dom'
+import store from '@/store'
+import logo from '@/assets/img/logo.jpg'
 
 const { SubMenu } = Menu
 
@@ -12,10 +13,13 @@ class Home extends Component {
 
     }
     this.quit= this.quit.bind(this)
+    
   }
   
   componentWillMount(){
-    if(!store.getState().isLogin) {
+    const loginState = store.getState().isLogin
+    console.log(loginState)
+    if(!loginState) {
       this.props.history.push('/login')
     }
   }
@@ -38,7 +42,7 @@ class Home extends Component {
             <HomeNav />
           </div>
           <div className='homeContent left'>
-            111
+            <Pagination showQuickJumper defaultCurrent={2} total={500} />
           </div>
         </div>
       </div>
@@ -105,7 +109,7 @@ class HomeNav extends Component {
             </span>
           }
         >
-          <Menu.Item key="1">书籍查询</Menu.Item>
+          <Menu.Item key="1"><Link to='/logdd'>书籍查询</Link></Menu.Item>
           <Menu.Item key="2">添加书籍</Menu.Item>
         </SubMenu>
         <SubMenu

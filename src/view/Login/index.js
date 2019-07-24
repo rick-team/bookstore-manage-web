@@ -1,6 +1,6 @@
 import React , { Component } from 'react'
 import { Form, Icon, Input, Button, message } from 'antd'
-import store from '../store'
+import store from '@/store'
 
 class Login extends Component {
   constructor(props) {

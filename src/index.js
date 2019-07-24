@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import App from './App'
-import moment from 'moment';
+import { LocaleProvider } from 'antd'
 
-// import zhCN from 'antd/es/locale-provider/zh_CN'
-import 'moment/locale/zh-cn'
+import zhCN from 'antd/es/locale-provider/zh_CN'
 import './assets/style/index.less'
 
-moment.locale('zh-cn');
 
-ReactDom.render(<App />, document.getElementById('root'))
+ReactDom.render((
+  <LocaleProvider locale={zhCN}>
+    <App />
+  </LocaleProvider>
+), document.getElementById('root'))
