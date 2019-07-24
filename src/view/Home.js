@@ -33,9 +33,13 @@ class Home extends Component {
     return (
       <div className='home'>
         <Header quit={this.quit} />
-        <div>
-          <HomeNav />
-          <div></div>
+        <div className='clearfix'>
+          <div className='homeNav left'>
+            <HomeNav />
+          </div>
+          <div className='homeContent left'>
+            111
+          </div>
         </div>
       </div>
     )
@@ -87,7 +91,7 @@ class HomeNav extends Component {
     return (
       <Menu
         onClick={this.handleClick}
-        style={{ width: 256, height: 'calc(100vh - 51px'}}
+        style={{ width: 256, height: 'calc(100vh - 51px)'}}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode="inline"
@@ -113,8 +117,8 @@ class HomeNav extends Component {
             </span>
           }
         >
-          <Menu.Item key="5">人员查询</Menu.Item>
-          <Menu.Item key="6">添加用户</Menu.Item>
+          <Menu.Item key="3">人员查询</Menu.Item>
+          <Menu.Item key="4">添加用户</Menu.Item>
         </SubMenu>
       </Menu>
     )
