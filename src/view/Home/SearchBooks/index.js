@@ -1,5 +1,5 @@
 import React , { Component } from 'react'
-import { Select, Table, Input } from 'antd'
+import { Select, Table, Input, Tag } from 'antd'
 
 const { Search } = Input
 const { Option } = Select;
@@ -15,6 +15,26 @@ const columns = [
     title: 'Anthor',
     dataIndex: 'anthor',
     key: 'anthor',
+  },
+  {
+    title: 'Tags',
+    key: 'tags',
+    dataIndex: 'tags',
+    render: tags => (
+      <span>
+        {tags.map(tag => {
+          let color = tag.length > 5 ? 'geekblue' : 'green';
+          if (tag === 'loser') {
+            color = 'volcano';
+          }
+          return (
+            <Tag color={color} key={tag}>
+              {tag.toUpperCase()}
+            </Tag>
+          );
+        })}
+      </span>
+    ),
   },
   {
     title: 'LeasePrice',
@@ -34,12 +54,14 @@ const bookList = [{
   anthor: '春上',
   leasePrice: 20,
   leaseTime: '5',
+  tags: ['言情','励志','都市']
 },{
   key: '2',
   name: '绣春刀',
   anthor: '唐朝大诗人',
   leasePrice: 20,
   leaseTime: '5',
+  tags: ['武侠','古代','热血']
 }]
 
 class SearchBooks extends Component {
