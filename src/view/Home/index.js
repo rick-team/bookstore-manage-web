@@ -31,6 +31,7 @@ class Home extends Component {
                 homeRouter.map(route=> <Route key={route.pathName} path={route.pathName} component={route.component} />)
               }
               <Redirect from='/home' exact to='/home/SearchBooks'/>
+              <Redirect to='/404'/>
             </Switch>
           </div>
         </div>
