@@ -1,5 +1,5 @@
 import React , { Component } from 'react'
-import { Menu, Icon, Avatar, Button, Pagination } from 'antd'
+import { Menu, Icon, Avatar, Button } from 'antd'
 import { Link } from 'react-router-dom'
 import store from '@/store'
 import logo from '@/assets/img/logo.jpg'
@@ -14,14 +14,6 @@ class Home extends Component {
     }
     this.quit= this.quit.bind(this)
     
-  }
-  
-  componentWillMount(){
-    const loginState = store.getState().isLogin
-    console.log(loginState)
-    if(!loginState) {
-      this.props.history.push('/login')
-    }
   }
 
   quit() {
@@ -42,7 +34,9 @@ class Home extends Component {
             <HomeNav />
           </div>
           <div className='homeContent left'>
-            <Pagination showQuickJumper defaultCurrent={2} total={500} />
+            <switch>
+
+            </switch>
           </div>
         </div>
       </div>
