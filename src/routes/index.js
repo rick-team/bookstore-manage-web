@@ -1,6 +1,7 @@
 import {
     Login,
-    NotFound
+    NotFound,
+    SearchBooks
 } from '@/view'
 
 export const mainRouter = [{
@@ -11,4 +12,7 @@ export const mainRouter = [{
     component: NotFound
 },]
 
-export const homeRouter = []
+export const homeRouter = [{
+    pathName: '/home/SearchBooks',
+    component: SearchBooks
+}]

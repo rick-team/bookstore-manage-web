@@ -1,9 +1,12 @@
-import Home from '@/view/Home'
+
 import Login from '@/view/Login'
 import NotFound from '@/view/NotFound'
 
+
+import SearchBooks from '@/view/Home/SearchBooks'
+
 export {
-   Home,
    Login,
-   NotFound
+   NotFound,
+   SearchBooks
 }

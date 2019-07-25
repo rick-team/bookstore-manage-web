@@ -1,8 +1,10 @@
 import React , { Component } from 'react'
 import { Menu, Icon, Avatar, Button } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link, withRouter, Route, Redirect, Switch } from 'react-router-dom'
 import store from '@/store'
 import logo from '@/assets/img/logo.jpg'
+
+import { homeRouter } from '@/routes'
 
 const { SubMenu } = Menu
 
@@ -12,31 +14,24 @@ class Home extends Component {
     this.state= {
 
     }
-    this.quit= this.quit.bind(this)
-    
-  }
-
-  quit() {
-    const action = {
-      type: 'loginChange',
-      value: false
-    } 
-    store.dispatch(action)
-    this.props.history.push('/login')
   }
 
   render() {
+    const HeaderComponent = withRouter(Header)
     return (
       <div className='home'>
-        <Header quit={this.quit} />
+        <HeaderComponent />
         <div className='clearfix'>
           <div className='homeNav left'>
             <HomeNav />
           </div>
           <div className='homeContent left'>
-            <switch>
-
-            </switch>
+            <Switch>
+              {
+                homeRouter.map(route=> <Route key={route.pathName} path={route.pathName} component={route.component} />)
+              }
+              <Redirect from='/home' exact to='/home/SearchBooks'/>
+            </Switch>
           </div>
         </div>
       </div>
@@ -67,7 +62,12 @@ class Header extends Component {
   }
 
   quit() {
-    this.props.quit()
+    const action = {
+      type: 'loginChange',
+      value: false
+    } 
+    store.dispatch(action)
+    this.props.history.push('/login')
   }
 
   render() {
