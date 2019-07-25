@@ -104,8 +104,8 @@ class HomeNav extends Component {
             </span>
           }
         >
-          <Menu.Item key="1"><Link to='/logdd'>书籍查询</Link></Menu.Item>
-          <Menu.Item key="2">添加书籍</Menu.Item>
+          <Menu.Item key="1"><Link to='/home/SearchBooks'>书籍查询</Link></Menu.Item>
+          <Menu.Item key="2"><Link to='/home/AddBook'>添加书籍</Link></Menu.Item>
         </SubMenu>
         <SubMenu
           key="sub2"

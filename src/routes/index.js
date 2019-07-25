@@ -1,7 +1,9 @@
 import {
     Login,
     NotFound,
-    SearchBooks
+    SearchBooks,
+    AddBook,
+    BooksDetails
 } from '@/view'
 
 export const mainRouter = [{
@@ -15,4 +17,10 @@ export const mainRouter = [{
 export const homeRouter = [{
     pathName: '/home/SearchBooks',
     component: SearchBooks
+},{
+    pathName: '/home/AddBook',
+    component: AddBook
+},{
+    pathName: '/home/BooksDetails/:id',
+    component: BooksDetails
 }]

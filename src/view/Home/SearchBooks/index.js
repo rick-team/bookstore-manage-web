@@ -50,16 +50,18 @@ const columns = [
 
 const bookList = [{
   key: '1',
+  id: '1',
   name: '挪威的森林',
   anthor: '春上',
-  leasePrice: 20,
+  leasePrice: 3,
   leaseTime: '5',
   tags: ['言情','励志','都市']
 },{
   key: '2',
+  id: '2',
   name: '绣春刀',
   anthor: '唐朝大诗人',
-  leasePrice: 20,
+  leasePrice: 5,
   leaseTime: '5',
   tags: ['武侠','古代','热血']
 }]
@@ -100,7 +102,8 @@ class SearchBooks extends Component {
   }
 
   tableAction= (text)=> {
-    console.log(text)
+    console.log(text.id)
+    this.props.history.push('/home/BooksDetails/' + text.id)
   }
 
   get selectBefore() {
