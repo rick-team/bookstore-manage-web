@@ -6,18 +6,18 @@ const { Option } = Select;
 
 const columns = [
   {
-    title: 'Name',
+    title: '书籍名称',
     dataIndex: 'name',
     key: 'name',
     render: text => <span className='fontActive'>{text}</span>,
   },
   {
-    title: 'Anthor',
+    title: '作者',
     dataIndex: 'anthor',
     key: 'anthor',
   },
   {
-    title: 'Tags',
+    title: '标签',
     key: 'tags',
     dataIndex: 'tags',
     render: tags => (
@@ -37,15 +37,20 @@ const columns = [
     ),
   },
   {
-    title: 'LeasePrice',
+    title: '租赁价格',
     key: 'leasePrice',
     dataIndex: 'leasePrice',
   },
   {
-    title: 'LeaseTime',
+    title: '租赁次数',
     key: 'leaseTime',
     dataIndex: 'leaseTime',
   },
+  {
+    title: '剩余数量',
+    key: 'num',
+    dataIndex: 'num',
+  }
 ];
 
 const bookList = [{
@@ -55,6 +60,7 @@ const bookList = [{
   anthor: '春上',
   leasePrice: 3,
   leaseTime: '5',
+  num: '20',
   tags: ['言情','励志','都市']
 },{
   key: '2',
@@ -63,6 +69,7 @@ const bookList = [{
   anthor: '唐朝大诗人',
   leasePrice: 5,
   leaseTime: '5',
+  num: '20',
   tags: ['武侠','古代','热血']
 }]
 
