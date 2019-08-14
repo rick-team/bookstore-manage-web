@@ -21,11 +21,11 @@ class Home extends Component {
     return (
       <div className='home'>
         <HeaderComponent />
-        <div className='clearfix'>
-          <div className='homeNav left'>
+        <div className='content'>
+          <aside className='content-left'>
             <HomeNav />
-          </div>
-          <div className='homeContent left'>
+          </aside>
+          <section className='content-right'>
             <Switch>
               {
                 homeRouter.map(route=> <Route key={route.pathName} path={route.pathName} component={route.component} />)
@@ -33,7 +33,7 @@ class Home extends Component {
               <Redirect from='/home' exact to='/home/SearchBooks'/>
               <Redirect to='/404'/>
             </Switch>
-          </div>
+          </section>
         </div>
       </div>
     )
